@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Park:</strong>
+  <%= @park.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @park.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= cl_image_tag(@park.picture,
+    :width => 100, :height => 100,
+      :crop => :fill, :gravity => :face) %>
+</p>
+
+<%= link_to 'Edit', edit_park_path(@park) %> |
+<%= link_to 'Back', parks_path %>
