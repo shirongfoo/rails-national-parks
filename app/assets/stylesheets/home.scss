@@ -1,0 +1,16 @@
+// Place all the styles related to the homee controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.home-container {
+  height: 25vh;
+  width: 100vw;
+  background-image: url(asset_path('sabah_mount_kk.jpg'));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+}

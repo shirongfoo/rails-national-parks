@@ -1,21 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
 
-<p>
-  <strong>Park:</strong>
-  <%= @park.name %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @park.description %>
-</p>
+  <h1>
+    <%= @park.name %>
+  </h1>
+  <hr>
+  <div class='col-md-8'>
+    <h5>Description:</h5>
+    <div class='col-md-10'>
+      <%= @park.description %>
+    </div>
 
-<p>
-  <strong>Picture:</strong>
-  <%= cl_image_tag(@park.picture,
-    :width => 100, :height => 100,
-      :crop => :fill, :gravity => :face) %>
-</p>
+  </div>
 
-<%= link_to 'Edit', edit_park_path(@park) %> |
-<%= link_to 'Back', parks_path %>
+
+
+  <div class='col-md-4 text-right'>
+    <%= cl_image_tag(@park.picture,
+      :width => 300, :height => 200,
+        :crop => :fill, :gravity => :face) %>
+  </div>
+
+
+  <div class='col-md-12 text-right'>
+    <%= link_to 'Edit', edit_park_path(@park) , class:'btn btn-primary'%>
+    <%= link_to 'Back', parks_path , class:'btn btn-warning'%>
+  </div>
+
+</div>

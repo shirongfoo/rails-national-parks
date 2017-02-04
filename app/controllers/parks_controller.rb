@@ -1,6 +1,6 @@
 class ParksController < ApplicationController
-  before_action :set_park, only: [:show, :edit, :update, :destory]
-  before_action :upload, only: [:create, :edit]
+  before_action :set_park, only: [:show, :edit, :update, :destroy]
+  before_action :upload, only: [:create, :update]
 
  def index
    @parks = Park.all
@@ -35,8 +35,8 @@ class ParksController < ApplicationController
     end
  end
 
- def destory
-   @park.destory
+ def destroy
+   @park.destroy
    redirect_to parks_url, notice: 'Park was successfully destroyed.'
  end
 
@@ -51,8 +51,10 @@ class ParksController < ApplicationController
  end
 
  def upload
+   if params[:park][:picture] != nil
    uploaded_file = params[:park][:picture].path
    cloudnary_file = Cloudinary::Uploader.upload(uploaded_file)
    params[:park][:picture] = cloudnary_file['public_id']
+ end
  end
 end
