@@ -9,6 +9,7 @@
   <table class='col-md-12 table table-hover'>
     <thead>
       <tr>
+        <th colspan='1'>No</th>
         <th class='col-md-2'>Park Name</th>
         <th class='col-md-5'>Description</th>
         <th class='col-md-3'>Picture</th>
@@ -17,8 +18,11 @@
     </thead>
 
     <tbody>
+            <% count = 0 %>
       <% @parks.each do |park| %>
-        <tr>
+      <% count += 1%>
+      <tr>
+        <td class='h4'><%= count %></td>
           <td class='h4'><%= park.name %></td>
           <td><%= park.description %></td>
           <td><%= cl_image_tag(park.picture,

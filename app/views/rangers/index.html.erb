@@ -9,14 +9,18 @@
   <table class='col-md-12 table table-hover'>
     <thead>
       <tr>
-        <th class='col-md-6'>Park Name</th>
+        <th colspan='1'>No</th>
+        <th class='col-md-6'>Ranger Name</th>
         <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
+      <% count = 0 %>
       <% @rangers.each do |ranger| %>
+        <% count += 1%>
         <tr>
+          <td class='h4'><%= count %></td>
           <td class='h4'><%= ranger.name %></td>
           <td><%= link_to 'Show', ranger %></td>
           <td><%= link_to 'Edit', edit_ranger_path(ranger) %></td>

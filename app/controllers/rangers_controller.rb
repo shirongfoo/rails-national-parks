@@ -1,6 +1,6 @@
 class RangersController < ApplicationController
   before_action :set_ranger, only: [:edit, :show, :update, :destroy]
-  before_action :set_all_parks, only: [:edit, :show]
+  before_action :set_all_parks, only: [:edit, :new]
 
   def index
     @rangers = Ranger.all
