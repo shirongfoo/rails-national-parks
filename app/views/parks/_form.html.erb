@@ -1,6 +1,8 @@
+
+
 <%= bootstrap_form_for(park) do |f| %>
   <% if park.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class='alert alert-danger'>
       <h2><%= pluralize(park.errors.count, "error") %> prohibited this park from being saved:</h2>
 
       <ul>
@@ -12,18 +14,18 @@
   <% end %>
 
   <div class="field">
-
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-
     <%= f.text_area :description %>
   </div>
 
-  <div class="field">
+  <!-- <div class='field'>
     <%= f.file_field :picture %>
-  </div>
+  </div> -->
+<%= cl_image_upload_tag(:file) %>
+<%= f.collection_check_boxes :ranger_ids, @rangers, :id,:name %>
 
   <div class="actions text-right">
     <%= f.submit class:'btn btn-primary' %>

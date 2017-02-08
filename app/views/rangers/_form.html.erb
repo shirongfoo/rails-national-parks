@@ -1,0 +1,26 @@
+
+<%= bootstrap_form_for(ranger) do |f| %>
+  <% if ranger.errors.any? %>
+    <div id="error_explanation" class='alert alert-danger'>
+      <h2><%= pluralize(ranger.errors.count, "error") %> prohibited this ranger from being saved:</h2>
+
+      <ul>
+      <% ranger.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.collection_check_boxes :park_ids, @parks, :id, :name%>
+  </div>
+
+  <div class="actions text-right">
+    <%= f.submit class:'btn btn-primary' %>
+  </div>
+<% end %>

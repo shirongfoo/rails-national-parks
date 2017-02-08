@@ -1,6 +1,8 @@
 <div class='container'>
 
-  <p id="notice"><%= notice %></p>
+  <% if notice %>
+  <div id="notice" class='alert alert-success'><%= notice %></div>
+  <% end %>
 
   <h1>
     <%= @park.name %>

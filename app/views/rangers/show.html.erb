@@ -1,0 +1,43 @@
+<div class='container'>
+
+  <% if notice %>
+  <div id="notice" class='alert alert-success'><%= notice %></div>
+  <% end %>
+
+  <h1>
+    <%= @ranger.name %>
+  </h1>
+  <hr>
+  <table class='col-md-12 table table-hover'>
+      <thead>
+        <tr>
+          <th class='col-md-6'>Park Name</th>
+          <th class='col-md-5'>Description</th>
+          <th class='col-md-3'>Picture</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @ranger.parks.each do |park| %>
+          <tr>
+            <td class='h4'><%= park.name %></td>
+            <td><%= park.description %></td>
+            <td><%= cl_image_tag(park.picture,
+              :width => 200, :height => 100,
+                :crop => :fill, :gravity => :face) %></td>
+            <td><%= link_to 'Show', park %></td>
+            <td><%= link_to 'Edit', edit_park_path(park) %></td>
+            <td><%= link_to 'Destory', park, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+
+
+  <div class='col-md-12 text-right'>
+    <%= link_to 'Edit', edit_ranger_path(@ranger) , class:'btn btn-primary'%>
+    <%= link_to 'Back', rangers_path , class:'btn btn-warning'%>
+  </div>
+
+</div>
